@@ -1,0 +1,37 @@
+nav {
+  font-family: 'Bungee', cursive;
+  background: #4056A1;
+  height: 90px;
+}
+
+nav span {
+  color: white;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between
+}
+
+.tweeter {
+  font-size: 35px;
+  padding-top: 25px;
+  padding-left: 35px;
+}
+
+.create {
+  font-family: 'Source Sans Pro', sans-serif;
+  padding-top: 20px;
+  padding-right: 35px;
+}
+
+.createarrow {
+  display: flex;
+  flex-direction: column;
+}
+
+.arrow {
+  color: red;
+  padding-top: 10px;
+  padding-left: 70px;
+}

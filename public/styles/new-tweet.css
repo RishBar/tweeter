@@ -1,0 +1,62 @@
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  /* align-items: center;
+  justify-content: center; */
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+}
+
+button {
+  font-family: 'Bungee', cursive; 
+  font-size: 0.75em;
+  background-color: #4056A1;
+  padding-top: .5em;
+  padding-bottom: .5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  color: #FFFFFF;
+  border: 0em;
+}
+
+.counter {
+  font-family: 'Bungee', cursive; 
+  font-size: 0.75em;
+  padding-top: 5px;
+  color: #545149;
+}
+
+main section form div {
+  display: flex;
+  justify-content: space-between
+}
+
+main section h2 {
+  padding-left: 1px;
+}
+
+textarea {
+  height: 40px;
+  margin-bottom: 10px;
+  background-color: #f4f1ec;
+  border-width: 5px;
+  border-color: #545149;
+  border-top: #f4f1ec;
+  border-right: #f4f1ec;
+  border-left: #f4f1ec;
+}
+
+::placeholder {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #545149;
+  opacity: 1;
+  font-weight: bold;
+}
