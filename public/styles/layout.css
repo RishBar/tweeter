@@ -22,11 +22,12 @@ body {
 }
 
 main {
+  padding-left: 120px;
   display: flex;
   flex-direction: column;
   width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  align-items: center;
+  justify-content: center; 
   background-color: #f4f1ec;
 }
 
