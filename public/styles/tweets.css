@@ -5,12 +5,11 @@ article div img {
 
 article {
   margin-top: 40px;
-  border-style: solid;
 
   /* box-shadow: 5px 10px; */
 }
 
-article:hover {
+.one-tweet:hover {
   box-shadow: 5px 10px grey;
 }
 
@@ -41,4 +40,8 @@ article:hover {
   border-right: #f4f1ec;
   border-left: #f4f1ec;
   padding-bottom: 15px;
+}
+
+.one-tweet {
+  border-style: solid;
 }
