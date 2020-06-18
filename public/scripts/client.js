@@ -11,7 +11,7 @@ $(document).ready(function() {
   const renderTweets = function(tweets) {
     for (const tweet of tweets) {
       let $tweetElement = createTweetElement(tweet);
-      $('#tweets-container').append($tweetElement);
+      $('#tweets-container').prepend($tweetElement);
     }
   };
 
@@ -25,7 +25,7 @@ $(document).ready(function() {
           </div>
           <p>${tweet["user"]["handle"]}</p>
         </div>
-        <p class="tweet-content">${tweet["content"]["text"]}</p>
+        <p class="tweet-content">${escape(tweet["content"]["text"])}</p>
         <div class="days-ago-edit">
           <p>${tweet["created_at"]}</p>
           <p>some buttons</p>
@@ -44,23 +44,27 @@ $(document).ready(function() {
     } else if (decodedTweet.length > 140) {
       alert("That tweets to long buddy");
     } else {
-      console.log(decodeURIComponent(tweetData).substring(5));
       $.post('/tweets/',
         tweetData,
         function() {
-          console.log('success');
+          loadTweets();
         });
     }
   });
 
   const loadTweets = function() {
+    $('#tweets-container').empty();
     $.ajax('/tweets/', { method: 'GET' })
-      .then(function (loadedTweets) {
-        console.log('Success: ', loadedTweets);
+      .then(function(loadedTweets) {
         renderTweets(loadedTweets);
       });
   };
 
-  loadTweets();
+  const escape =  function(str) {
+    let div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
 
+  loadTweets();
 });
