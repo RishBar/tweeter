@@ -1,6 +1,7 @@
 nav {
   font-family: 'Bungee', cursive;
-  background: #4056A1;
+  background-color: #b88a00;
+  background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   height: 90px;
   position: fixed; 
   top: 0; 
@@ -37,4 +38,21 @@ nav span {
   color: red;
   padding-top: 10px;
   padding-left: 70px;
+  animation: MoveUpDown 1s linear infinite;
+  position: absolute;
+}
+
+@keyframes MoveUpDown {
+  0%, 100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 15px;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  nav {
+    background: #4056A1;
+  }
 }

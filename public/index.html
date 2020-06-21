@@ -6,6 +6,7 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@1,300;1,700&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/0ed7a22415.js"></script>
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
@@ -27,34 +28,39 @@
         <span class="tweeter">tweeter</span>
         <div class="createarrow">
           <span class="create"><b>Write</b> a new tweet</span>
-          <span class="arrow">&#65086;</span>
+          <span class="arrow">&#65086;</span>	
         </div>
       </div>
     </nav>
+    <div class="header-main">
+      <header class="headercontainer">                   
+        <div class="img">
+            <img src="/images/profile-hex.png"> 
+            <h2 class="name"><b>Your</b> Name</h2>
+        </div>
+        <br>
+      </header>
 
-    <header class="headercontainer">                   
-      <div class="img">
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div>
-          <h2 class="name"><b>Your</b> Name</h2>
-      </div>
-    </header>
-
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <h2>Compose Tweet</h2>
-        <form class="form-container" action="/tweets" method="POST">
-          <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
-          <div>
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-      </section>
-      <article id="tweets-container"></article>
-    </main>
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="error-empty">
+          <p>&#9888; Cannot have empty tweet &#9888;</p>
+        </section>
+        <section class="error-toolong">
+          <p>&#9888; Cannot have tweet over 140 characters &#9888;</p>
+        </section>
+        <section class="new-tweet">
+          <h2>Compose Tweet</h2>
+          <form class="form-container" action="/tweets" method="POST">
+            <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
+            <div>
+              <button type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
+        <article id="tweets-container"></article>
+      </main>
+    </div>
   </body>
 </html>

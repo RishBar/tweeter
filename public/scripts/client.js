@@ -16,6 +16,15 @@ $(document).ready(function() {
   };
 
   const createTweetElement = function(tweet) {
+    const numDaysAgo = Math.round((Date.now() - tweet["created_at"]) / 86400000); 
+    let daysAgoString;
+    if (numDaysAgo === 0) {
+      daysAgoString = "Today";
+    } else if (numDaysAgo === 1) {
+      daysAgoString = '1 day ago';
+    } else {
+      daysAgoString = `${numDaysAgo} days ago`;
+    }
     const tweetElement = `
       <article class="one-tweet">
         <div class="avatar-name-handle">
@@ -27,8 +36,12 @@ $(document).ready(function() {
         </div>
         <p class="tweet-content">${escape(tweet["content"]["text"])}</p>
         <div class="days-ago-edit">
-          <p>${tweet["created_at"]}</p>
-          <p>some buttons</p>
+          <p>${daysAgoString}</p>
+          <span class=“reaction”>
+            <i class="fa fa-flag" aria-hidden="true"></i>
+            <i class="fa fa-retweet" aria-hidden="true"></i>
+            <i class="fa fa-heart" aria-hidden="true"></i>
+          </span>
         </div>
       </article>
     `;
@@ -38,17 +51,32 @@ $(document).ready(function() {
   $('.form-container').on('submit', function(event) {
     event.preventDefault();
     const tweetData = $(this).serialize();
-    const decodedTweet = decodeURIComponent(tweetData).substring(5)
+    const decodedTweet = decodeURIComponent(tweetData).substring(5);
+    $('.error-empty').slideUp();
+    $('.error-toolong').slideUp();
     if (!decodedTweet) {
-      alert("That's an empty string");
+      $('.error-empty').slideDown();
     } else if (decodedTweet.length > 140) {
-      alert("That tweets to long buddy");
+      $('.error-toolong').slideDown();
     } else {
       $.post('/tweets/',
         tweetData,
         function() {
           loadTweets();
         });
+      $("#tweet-text").val("");
+      $(".counter").val(140);
+    }
+  });
+
+  $('.arrow').on('click', function(event) {
+    if ($('.new-tweet').is(':hidden')) {
+      console.log('u click its hidden');
+      $('.new-tweet').slideDown();
+      $('tweet-text').scrollTop();
+      $('#tweet-text').focus();
+    } else {
+      $('.new-tweet').slideUp();
     }
   });
 
@@ -65,6 +93,9 @@ $(document).ready(function() {
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
+  $('.error-empty').hide();
+  $('.error-toolong').hide();
+  $('.new-tweet').hide();
 
   loadTweets();
 });

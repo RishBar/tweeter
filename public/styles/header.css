@@ -15,4 +15,20 @@ header {
 
 .name {
   color: white;
+  margin-left: 35px;
+  margin-top: 13px;
+}
+
+
+
+@media only screen and (min-width: 1024px) {
+  header {
+    padding-top: 150px;
+    height: 350px;
+    width: 350px;
+    margin-left: 50px;
+  }
+  .img {
+    padding-bottom: 100px;
+  }
 }

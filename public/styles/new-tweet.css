@@ -10,7 +10,7 @@
 .form-container {
   display: flex;
   flex-direction: column;
-  width: 700px;
+  width: 50vw;
 }
 
 button {
@@ -57,4 +57,15 @@ textarea {
   color: #545149;
   opacity: 1;
   font-weight: bold;
+}
+
+#tweet-text {
+  width: 100%;
+}
+
+@media only screen and (min-width: 1024px) {
+  .header-main {
+    display: flex;
+    margin-top: 150px;
+  }
 }
