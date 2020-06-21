@@ -16,7 +16,7 @@ $(document).ready(function() {
   };
 
   const createTweetElement = function(tweet) {
-    const numDaysAgo = Math.round((Date.now() - tweet["created_at"]) / 86400000); 
+    const numDaysAgo = Math.round((Date.now() - tweet["created_at"]) / 86400000);
     let daysAgoString;
     if (numDaysAgo === 0) {
       daysAgoString = "Today";
